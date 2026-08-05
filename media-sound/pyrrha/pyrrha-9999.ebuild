@@ -17,19 +17,21 @@ SLOT="0"
 KEYWORDS=""  # live ebuild
 IUSE="+lastfm journald"
 
-# Pyrrha needs PySide6 (QtCore/QtGui/QtWidgets), PyGObject, and GStreamer +
-# libsecret with GObject introspection. GStreamer plugins are required for HTTP
-# streaming (soup), ReplayGain/limiter/equalizer (good) and MP3/AAC decoding
-# (libav). pylast and python-systemd back the optional Last.fm and journald
-# plugins.
+# Pyrrha needs PySide6 (dev-python/pyside; QtCore/QtGui/QtWidgets), PyGObject,
+# and GStreamer + libsecret with GObject introspection. GStreamer plugins:
+# gst-plugins-good provides ReplayGain (rgvolume/rglimiter), the equalizer and
+# autodetect (autoaudiosink); soup provides souphttpsrc; pulse provides the sink
+# autoaudiosink selects; libav decodes MP3/AAC. pylast and python-systemd back
+# the optional Last.fm and journald plugins.
 RDEPEND="
-	dev-python/pyside6[${PYTHON_USEDEP}]
+	dev-python/pyside[gui,widgets,${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	app-crypt/libsecret[introspection]
 	media-libs/gstreamer:1.0[introspection]
 	media-libs/gst-plugins-base:1.0[introspection]
+	media-libs/gst-plugins-good:1.0
 	media-plugins/gst-plugins-soup:1.0
-	media-plugins/gst-plugins-good:1.0
+	media-plugins/gst-plugins-pulse:1.0
 	media-plugins/gst-plugins-libav:1.0
 	lastfm? ( dev-python/pylast[${PYTHON_USEDEP}] )
 	journald? ( dev-python/python-systemd[${PYTHON_USEDEP}] )
