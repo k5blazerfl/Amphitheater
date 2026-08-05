@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>k5blazerfl@fastmail.com</email>
+		<name>k5blazerfl</name>
+	</maintainer>
+	<longdescription lang="en">
+		Pyrrha is a Qt (PySide6) Pandora Radio client, a port of Pithos from GTK
+		to Qt. It keeps Pithos' Pandora backend and GStreamer playback pipeline
+		and ships the full set of Pithos plugins (MPRIS, media keys,
+		notifications, tray icon, equalizer, Last.fm, screensaver inhibit/pause,
+		volume normalization and journald logging).
+	</longdescription>
+	<use>
+		<flag name="lastfm">Enable Last.fm scrobbling via dev-python/pylast</flag>
+		<flag name="journald">Enable logging to the systemd journal via dev-python/python-systemd</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">k5blazerfl/Pyrrha</remote-id>
+	</upstream>
+</pkgmetadata>
