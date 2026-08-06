@@ -37,16 +37,11 @@ RDEPEND="
 	journald? ( dev-python/python-systemd[${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-util/glib-utils"
 
 APP_ID="io.github.k5blazerfl.Pyrrha"
 
 python_install_all() {
 	distutils-r1_python_install_all
-
-	# GSettings schema (compiled in pkg_postinst).
-	insinto /usr/share/glib-2.0/schemas
-	doins "pyrrha/data/${APP_ID}.gschema.xml"
 
 	# Desktop entry: point Exec at the installed console script.
 	sed -e 's|^Exec=.*|Exec=pyrrha|' \
@@ -55,14 +50,4 @@ python_install_all() {
 
 	# Application icon.
 	newicon -s 256 pyrrha/icons/pyrrha.png "${APP_ID}.png"
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-	glib-compile-schemas "${EROOT}/usr/share/glib-2.0/schemas"
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
-	glib-compile-schemas "${EROOT}/usr/share/glib-2.0/schemas"
 }
