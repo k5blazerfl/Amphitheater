@@ -21,9 +21,10 @@ IUSE="+lastfm journald"
 # and GStreamer + libsecret with GObject introspection. GStreamer plugins:
 # gst-plugins-good provides ReplayGain (rgvolume/rglimiter), the equalizer and
 # autodetect (autoaudiosink); soup provides souphttpsrc; pulse provides the sink
-# autoaudiosink selects; libav decodes MP3/AAC and most local formats; bad adds
-# the rest of the local codecs (WavPack, Musepack, …) for local playback. pylast
-# and python-systemd back the optional Last.fm and journald plugins.
+# autoaudiosink selects; libav decodes MP3/AAC and most local formats (incl.
+# WMA, ALAC, Monkey's Audio, TTA); gst-plugins-wavpack adds WavPack (.wv), which
+# libav here does not. pylast and python-systemd back the optional Last.fm and
+# journald plugins.
 RDEPEND="
 	dev-python/pyside[gui,widgets,${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -31,7 +32,7 @@ RDEPEND="
 	media-libs/gstreamer:1.0[introspection]
 	media-libs/gst-plugins-base:1.0[introspection]
 	media-libs/gst-plugins-good:1.0
-	media-plugins/gst-plugins-bad:1.0
+	media-plugins/gst-plugins-wavpack:1.0
 	media-plugins/gst-plugins-soup:1.0
 	media-plugins/gst-plugins-pulse:1.0
 	media-plugins/gst-plugins-libav:1.0
