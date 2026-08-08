@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>k5blazerfl@fastmail.com</email>
+		<name>k5blazerfl</name>
+	</maintainer>
+	<longdescription lang="en">
+		GeST (Gentoo System Tool) is a modular, YaST-style system administration
+		tool for Gentoo: a full-screen Textual TUI over a layered core, with all
+		privileged actions routed through a root D-Bus service and gated by
+		polkit. Modules cover software (Portage: search, transactional
+		install/update/remove, USE/keyword/mask editing, @world update, depclean,
+		sync, news), system settings (hostname/timezone/locale), OpenRC services,
+		users and groups, and network interfaces (netifrc).
+	</longdescription>
+	<upstream>
+		<remote-id type="github">k5blazerfl/GeST</remote-id>
+	</upstream>
+</pkgmetadata>
