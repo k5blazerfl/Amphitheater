@@ -6,6 +6,7 @@ A personal [Gentoo](https://www.gentoo.org/) overlay (Portage ebuild repository)
 
 | Package | Description |
 | --- | --- |
+| `app-admin/gest` | [GeST](https://github.com/k5blazerfl/GeST) — a YaST-style, full-screen TUI system administration tool for Gentoo (Portage, services, users, network). Released `0.21.0` + live `-9999`. |
 | `media-sound/pyrrha` | [Pyrrha](https://github.com/k5blazerfl/Pyrrha) — a Qt (PySide6) Pandora Radio client, a port of Pithos. Live `-9999` ebuild. |
 
 ## Enabling the overlay
@@ -44,6 +45,24 @@ echo "media-sound/pyrrha **" >> /etc/portage/package.accept_keywords/pyrrha
 
 USE flags: `lastfm` (scrobbling, on by default) and `journald` (systemd journal
 logging).
+
+## Installing GeST
+
+```sh
+echo "app-admin/gest ~amd64" >> /etc/portage/package.accept_keywords/gest
+emerge -av app-admin/gest
+rc-service dbus reload   # so D-Bus sees the new policy/activation
+```
+
+`app-admin/gest-0.21.0` is a released version (`~amd64`); `gest-9999` tracks
+GeST's `main`. The privileged backend bus-activates on first use (polkit-gated).
+
+> **Dependency note:** GeST requires `dev-python/textual`, which is **not yet in
+> `::gentoo`**. Its own dependencies (rich, markdown-it-py, mdit-py-plugins,
+> platformdirs, pygments) are all in `::gentoo`, so a `dev-python/textual` ebuild
+> can be added to this overlay — until then, `emerge app-admin/gest` won't
+> resolve. `dev-python/dbus-next` and `dev-python/pygobject` are already in
+> `::gentoo`.
 
 ## License
 
