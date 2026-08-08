@@ -6,7 +6,7 @@ A personal [Gentoo](https://www.gentoo.org/) overlay (Portage ebuild repository)
 
 | Package | Description |
 | --- | --- |
-| `app-admin/gest` | [GeST](https://github.com/k5blazerfl/GeST) — a YaST-style, full-screen TUI system administration tool for Gentoo (Portage, services, users, network). Released `0.31.1` + live `-9999`. |
+| `app-admin/gest` | [GeST](https://github.com/k5blazerfl/GeST) — a YaST-style, full-screen TUI system administration tool for Gentoo (Portage, services, users, network). Released `0.31.2` + live `-9999`. |
 | `media-sound/pyrrha` | [Pyrrha](https://github.com/k5blazerfl/Pyrrha) — a Qt (PySide6) Pandora Radio client, a port of Pithos. Live `-9999` ebuild. |
 
 ## Enabling the overlay
@@ -54,7 +54,7 @@ emerge -av app-admin/gest
 rc-service dbus reload   # so D-Bus sees the new policy/activation
 ```
 
-`app-admin/gest-0.31.1` is a released version (`~amd64`); `gest-9999` tracks
+`app-admin/gest-0.31.2` is a released version (`~amd64`); `gest-9999` tracks
 GeST's `main`. The privileged backend bus-activates on first use (polkit-gated).
 
 GeST's runtime dependencies (`dev-python/urwid`, `dev-python/dbus-next`,
