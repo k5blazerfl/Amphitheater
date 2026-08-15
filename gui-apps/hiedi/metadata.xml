@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>k5blazerfl@fastmail.com</email>
+		<name>k5blazerfl</name>
+	</maintainer>
+	<longdescription lang="en">
+		Hiedi is HeDE's local-first, cloud-on-consent assistant for building and
+		planning — for anything, not just software. A project is a Voyage: a goal,
+		a Chart (waypoints and a DAG of tasks), and a Logbook, all stored as plain
+		YAML and Markdown the user owns. The local brain (Ollama) drafts and revises
+		the plan; an optional cloud brain (Claude) is gated per-Voyage. Every action
+		Hiedi takes passes a per-Voyage permission gate (deny/ask/allow) and is
+		recorded with who and which brain did it. Ships a Qt summon panel (hiedi),
+		a session daemon (hiedid, org.hede.hiedi), and a headless CLI (hiedi-voyage).
+	</longdescription>
+	<upstream>
+		<remote-id type="github">k5blazerfl/Hiedi</remote-id>
+	</upstream>
+</pkgmetadata>
