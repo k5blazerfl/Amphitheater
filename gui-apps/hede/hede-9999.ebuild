@@ -23,10 +23,12 @@ IUSE="wayfire" # opt-in "effects" compositor profile
 
 # Qt 6 Widgets + Wayland, the QtWayland client (foreign-toplevel protocol
 # bindings + qtwaylandscanner), and the layer-shell binding (the KF6 micro-dep).
+BDEPEND="dev-util/wayland-scanner"
+
 DEPEND="
 	dev-qt/qtbase:6[dbus,widgets,wayland]
 	dev-qt/qtwayland:6
-	kde-frameworks/layer-shell-qt:6
+	kde-plasma/layer-shell-qt:6
 "
 # Runtime: the compositor HeDE drives, the default terminal helm-panel spawns,
 # GeST (the Control Center + the org.gentoo.gest.Shell read seam), and a polkit
@@ -37,7 +39,6 @@ RDEPEND="
 	gui-apps/foot
 	app-admin/gest
 	lxqt-base/lxqt-policykit
-	app-misc/brightnessctl
 	media-video/wireplumber
 	gui-apps/swaylock
 	gui-apps/swayidle
