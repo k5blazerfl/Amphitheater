@@ -6,15 +6,15 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit distutils-r1 git-r3 xdg
+inherit distutils-r1 xdg
 
-DESCRIPTION="A Qt (PySide6) Pandora Radio client, a port of Pithos"
-HOMEPAGE="https://github.com/k5blazerfl/Pyrrha"
-EGIT_REPO_URI="https://github.com/k5blazerfl/Pyrrha.git"
+DESCRIPTION="A Qt (PySide6) Pandora Radio client, a port of Pithos (legacy build)"
+HOMEPAGE="https://github.com/k5blazerfl/py-pyrrha"
+SRC_URI="https://github.com/k5blazerfl/py-pyrrha/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""  # live ebuild
+KEYWORDS="~amd64"
 IUSE="+lastfm journald"
 
 # Pyrrha needs PySide6 (dev-python/pyside; QtCore/QtGui/QtWidgets), PyGObject,
@@ -47,7 +47,7 @@ python_install_all() {
 	distutils-r1_python_install_all
 
 	# Desktop entry: point Exec at the installed console script.
-	sed -e 's|^Exec=.*|Exec=pyrrha|' \
+	sed -e 's|^Exec=.*|Exec=py-pyrrha|' \
 		"pyrrha/data/${APP_ID}.desktop" > "${T}/${APP_ID}.desktop" || die
 	domenu "${T}/${APP_ID}.desktop"
 
